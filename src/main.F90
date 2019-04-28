@@ -124,18 +124,17 @@ program main
         call cpu_time(end)
         write(12,*) i, " ", start-end
 
+        if(allocated(A4)) deallocate(A4)
+        if(allocated(B4)) deallocate(B4)
+        if(allocated(C4)) deallocate(C4)
+        if(allocated(A8)) deallocate(A8)
+        if(allocated(B8)) deallocate(B8)
+        if(allocated(C8)) deallocate(C8)
+        if(allocated(A16)) deallocate(A16)
+        if(allocated(B16)) deallocate(B16)
+        if(allocated(C16)) deallocate(C16)
+
     end do
-
-
-    if(allocated(A4)) deallocate(A4)
-    if(allocated(B4)) deallocate(B4)
-    if(allocated(C4)) deallocate(C4)
-    if(allocated(A8)) deallocate(A8)
-    if(allocated(B8)) deallocate(B8)
-    if(allocated(C8)) deallocate(C8)
-    if(allocated(A16)) deallocate(A16)
-    if(allocated(B16)) deallocate(B16)
-    if(allocated(C16)) deallocate(C16)
 
     do i=1,12
         close(i)
