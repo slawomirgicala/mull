@@ -15,7 +15,7 @@ contains
         implicit none
 
         real(kind=4), intent(in), dimension(:,:) :: A, B
-        real(kind=4), intent(out), dimension(size(A,1),size(B,2)) :: C
+        real(kind=4), dimension(size(A,1),size(B,2)) :: C
         integer(kind=4) :: i, j
 
         if (size(A,2) /= size(B,1)) then
@@ -35,7 +35,7 @@ contains
         implicit none
 
         real(kind=8), intent(in), dimension(:,:) :: A, B
-        real(kind=8), intent(out), dimension(size(A,1),size(B,2)) :: C
+        real(kind=8), dimension(size(A,1),size(B,2)) :: C
         integer(kind=4) :: i, j
 
         if (size(A,2) /= size(B,1)) then
@@ -55,7 +55,7 @@ contains
         implicit none
 
         real(kind=16), intent(in), dimension(:,:) :: A, B
-        real(kind=16), intent(out), dimension(size(A,1),size(B,2)) :: C
+        real(kind=16), dimension(size(A,1),size(B,2)) :: C
         integer(kind=4) :: i, j
 
         if (size(A,2) /= size(B,1)) then
