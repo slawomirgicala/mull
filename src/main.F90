@@ -11,23 +11,23 @@ program main
     real(kind=16),allocatable,dimension(:,:) :: A16,B16,C16
     integer :: i, col, row
     real :: num
-    integer, dimension(1) :: seed = (/3/)
+    integer, dimension(1) :: seed = (/10000/)
     real(kind=16) :: start, end
 
-    call random_seed(put=seed)
+    !call random_seed(put=seed)
 
-    open(unit=1, file="../res/naive4_times", status=REPLACE)
-    open(unit=2, file="../res/naive8_times", status=REPLACE)
-    open(unit=3, file="../res/naive16_times", status=REPLACE)
-    open(unit=4, file="../res/better4_times", status=REPLACE)
-    open(unit=5, file="../res/better8_times", status=REPLACE)
-    open(unit=6, file="../res/better16_times", status=REPLACE)
-    open(unit=7, file="../res/dot4_times", status=REPLACE)
-    open(unit=8, file="../res/dot8_times", status=REPLACE)
-    open(unit=9, file="../res/dot16_times", status=REPLACE)
-    open(unit=10, file="../res/matmul4_times", status=REPLACE)
-    open(unit=11, file="../res/matmul8_times", status=REPLACE)
-    open(unit=12, file="../res/matmul16_times", status=REPLACE)
+    open(unit=1, file="./res/naive4_times", status='REPLACE')
+    open(unit=2, file="./res/naive8_times", status='REPLACE')
+    open(unit=3, file="./res/naive16_times", status='REPLACE')
+    open(unit=4, file="./res/better4_times", status='REPLACE')
+    open(unit=5, file="./res/better8_times", status='REPLACE')
+    open(unit=6, file="./res/better16_times", status='REPLACE')
+    open(unit=7, file="./res/dot4_times", status='REPLACE')
+    open(unit=8, file="./res/dot8_times", status='REPLACE')
+    open(unit=9, file="./res/dot16_times", status='REPLACE')
+    open(unit=10, file="./res/matmul4_times", status='REPLACE')
+    open(unit=11, file="./res/matmul8_times", status='REPLACE')
+    open(unit=12, file="./res/matmul16_times", status='REPLACE')
 
     do i=1,12
         write(i,*) "#n time"
@@ -125,6 +125,17 @@ program main
         write(12,*) i, " ", start-end
 
     end do
+
+
+    if(allocated(A4)) deallocate(A4)
+    if(allocated(B4)) deallocate(B4)
+    if(allocated(C4)) deallocate(C4)
+    if(allocated(A8)) deallocate(A8)
+    if(allocated(B8)) deallocate(B8)
+    if(allocated(C8)) deallocate(C8)
+    if(allocated(A16)) deallocate(A16)
+    if(allocated(B16)) deallocate(B16)
+    if(allocated(C16)) deallocate(C16)
 
     do i=1,12
         close(i)
